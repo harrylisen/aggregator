@@ -1,0 +1,17 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天執行一次
+  workflow_dispatch:    # 允許手動觸發
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: tgymnich/fork-sync@v2.0.10
+        with:
+          owner: wzdnzd
+          base: main  # 或者上游倉庫的主分支名稱
+          head: main  # 或者你的 fork 的主分支名稱
